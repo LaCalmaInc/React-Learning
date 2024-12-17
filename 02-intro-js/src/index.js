@@ -1,12 +1,32 @@
-const personajes = ['Goku', {nombre: 'Vegeta', raza:'Sayayin', poder:9000000},'Trunks'];
-const [p1, p2] = personajes;
-const {nombre} = p2;
-//console.log(p1, nombre);
 
-const useState = (valor) =>{
-    return [valor, ()=>{console.log('Hola mundo')}];
+const getImagen = async() =>{
+    try{
+        const apiKey ='8WbL58MMRlCMyZXSPKSEnmMpfgLrA9bF';
+        const resp = await fetch(`https://api.giphy.com/v1/gifs/random?api_key=${apiKey}`);
+        const {data} = await resp.json();
+        const {url} = data.images.original;
+        const img = document.createElement('img');
+        img.src = url;
+        document.body.append(img);
+        console.log(data);
+
+    } catch{error}{
+        console.error(error);
+    }
+
+
 }
 
-const [pj, setNombre ] = useState('Goku');
-console.log(pj);
-setNombre();
+getImagen();
+// peticion
+//     .then(resp =>{ resp.json()
+//     .then(({data})=> {
+//         const {url} = data.images.original;
+//         console.log(url);
+
+//         const img = document.createElement('img');
+//         img.src = url;
+//         document.body.append(img);
+//     })
+// })
+// .catch(console.warn)
