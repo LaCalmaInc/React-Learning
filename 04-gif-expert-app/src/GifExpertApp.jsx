@@ -1,6 +1,5 @@
 import { useState } from "react"
-import { AddCategorie } from "./components/addCategorie";
-import { GifGrid } from "./components/GifGrid";
+import { AddCategorie, GifGrid } from "./components/";
 
 export const GiftExpertApp = ()=>{
     const [categories, setcategories] = useState(['One Punch']);
@@ -13,7 +12,6 @@ export const GiftExpertApp = ()=>{
         <>
             <h1>GifExpertApp</h1>
             <AddCategorie 
-            //setCategories= {setcategories} 
             onNewCategory = {onAddCategorie}
             />
             <br />
